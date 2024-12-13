@@ -1,28 +1,21 @@
-Queens_Placement
-This Python program solves the 8 Queens puzzle using a backtracking algorithm. The 8 Queens puzzle involves placing 8 queens on an 8x8 chessboard such that no two queens threaten each other. This means that no two queens can share the same row, column, or diagonal.
+N-Queens Problem
+This Python script solves the N-Queens problem, which is a classic problem in computer science and mathematics. The objective of the problem is to place N queens on an N×N chessboard such that no two queens attack each other.
 
-How It Works
-The program uses a recursive backtracking approach to explore all possible ways to place the queens on the board. It starts by placing queens row by row and backtracks when it encounters a conflict (i.e., two queens threatening each other).
+How it Works
+The script defines the following functions:
 
-Functions:
-init_board(): Initializes an 8x8 chessboard represented by a 2D list. Each cell starts with a value of 0 (no queen).
-place_queen(board, a, b): Places a queen on the board at position (a, b) and marks the rows, columns, and diagonals as unsafe for further queens.
-delete_queen(board, a, b): Removes a queen from position (a, b) and restores the safety of the rows, columns, and diagonals.
-solution(board, a, count): Recursively tries to place queens on each row, starting from row 0. If a valid placement is found for all 8 queens, it outputs the solution.
-output_position(board): Prints the positions of the queens on the board in standard chess notation (e.g., "a1, b3, c5...").
-main(): Initializes the chessboard, calls the solution function, and prints the total number of valid solutions.
+init_board(): Initializes an 8x8 chessboard with all cells set to 0.
+place_queen(board, a, b): Places a queen on the chessboard at position (a, b) and updates the board to reflect the queen's attacks.
+delete_queen(board, a, b): Removes a queen from the chessboard at position (a, b) and updates the board accordingly.
+solution(board, a, count): Recursively tries to place queens on the chessboard, starting from the row specified by a. The count parameter keeps track of the number of valid solutions found.
+output_position(board): Prints the positions of the queens on the chessboard in the format "a1; b3; c5; ..."
+main(): The main function that initializes the chessboard, calls the solution() function, and prints the total number of solutions found.
+The solution() function uses a backtracking algorithm to explore all possible placements of queens on the chessboard. It places a queen in the current row (specified by a) and recursively calls itself to place queens in the remaining rows. If a valid solution is found (i.e., all 8 queens are placed without any conflicts), the function outputs the positions of the queens and increments the count variable.
+
 Usage
-To run the program, simply execute the Python script. It will solve the puzzle and print all possible solutions, along with the total number of solutions.
+To run the script, simply execute the main() function. The output will display the total number of valid solutions found, as well as the positions of the queens for each solution.
 
-python 8_queens.py
-
-Example Output:
-
-a1; b5; c8; d6; e3; f7; g2; h4
-a1; b6; c8; d3; e7; f4; g2; h5
-...
-
-Total solutions: 92
-
-License
-This project is open source and available under the MIT License.
+if __name__ == '__main__':
+    main()
+    
+This script is a classic example of a backtracking algorithm and demonstrates how to solve the N-Queens problem in Python.
